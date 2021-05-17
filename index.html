@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="funciones.js"></script>
+    <title>Panaderia</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Panaderia Artesanal S.L. </h1>
+            <img class="mx-auto d-block" src="panaderia.jpg"  class="img-thumbnail" alt="Cinque Terre">
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-grupo">
+                    <label for="producto"> Producto: </label><br>
+                    <select id="tipo" class="form-control" onchange="cargarPrecio(this.value)">
+                        <option selected disabled>Seleccionar producto</option>
+                    </select>
+                    <script type="text/javascript">
+                        cargarProductos();
+                    </script>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-grupo">
+                    <label for="precio"> Precio: </label>
+                    <input type="text" class="form-control" id="precio" readonly="readonly">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-grupo">
+                    <label for="cantidad"> Cantidad: </label>
+                    <input type="number" class="form-control" id="cantidad" onchange="cargarCantidad()">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-grupo">
+                    <label for="total"> TOTAL: </label>
+                    <input type="text" class="form-control" id="total" readonly="readonly">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="form-grupo">
+                <button id="boton" type="button" class="btn btn-primary" onclick="crearFila()"> Añadir
+                    Producto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-sm-12">
+            <h2>Lista de Compra</h2>
+            <TABLE BORDER id="tabla">
+                <TR>
+                    <TH>Producto</TH>
+                    <TH>Precio</TH>
+                    <TH>Cantidad</TH>
+                    <TH>Total</TH>
+                    <TH>Borrar</TH>
+                </TR>
+
+            </TABLE>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="form-grupo">
+                <button id="boton" type="button" class="btn btn-primary" onclick="eliminarFila()"> Borrar
+                    Producto</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="precioTotal">
+
+        <div class="container">
+
+            <div class="col-sm-4">
+                <div class="form-grupo">
+                    <button id="boton" type="button" class="btn btn-primary" onclick="precioTotal()"> Calcula</button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-grupo">
+                    <label for="total"> PRECIO TOTAL: </label>
+                    <input type="number" class="form-control" id="totalCompra" readonly="readonly">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container"> 
+
+        <button id="boton" type="button" class="btn btn-danger" onclick="Comprar()"> Comprar</button>
+
+    </div>
+
+
+</body>
+
+</html>
